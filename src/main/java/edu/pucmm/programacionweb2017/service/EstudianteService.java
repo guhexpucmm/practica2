@@ -35,4 +35,9 @@ public class EstudianteService implements EstudianteDAO{
     public List<Estudiante> encontrarTodos() {
         return estudianteDAO.encontrarTodos();
     }
+
+    @Override
+    public Estudiante encontrarPorMatricula(int matricula) {
+        return estudianteDAO.encontrarPorMatricula(matricula);
+    }
 }

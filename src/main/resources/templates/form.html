@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.w3.org/1999/xhtml" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title th:text="${titulo}">Title</title>
+</head>
+<body>
+<h1 th:text="${header}">Header por defecto</h1>
+<form th:action="@{${metodo}}" th:object="${estudiante}" method="post">
+    <fieldset>
+        <p>
+        <p th:if="${submit} eq 'Actualizar'">
+            <label for="matriculad">Matricula: </label>
+            <input type="text" name="matricula" id="matriculad" th:value="${mat}" readonly>
+        </p>
+        <p th:if="${submit} eq 'Insertar'">
+            <label for="matricula">Matricula: </label>
+            <input type="text" name="matricula" id="matricula" th:value="${mat}">
+        </p>
+        </p>
+        <p>
+            <label for="nombre">Nombre: </label>
+            <input type="text" name="nombre" id="nombre" th:value="${nom}">
+        </p>
+        <p>
+            <label for="apellido">Apellido: </label>
+            <input type="text" name="apellido" id="apellido" th:value="${ape}">
+        </p>
+        <p>
+            <label for="telefono">Telefono: </label>
+            <input type="text" name="telefono" id="telefono" th:value="${tel}">
+        </p>
+        <p>
+            <input type="submit" name="agregar" th:value="${submit}">
+            <input type="button" name="cancelar" th:value="${cancel}" th:href="@{inicio}">
+        </p>
+    </fieldset>
+</form>
+</body>
+</html>

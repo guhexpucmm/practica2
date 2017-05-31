@@ -55,6 +55,6 @@ public class Estudiante implements Serializable {
 
     @Override
     public String toString() {
-        return "[Nombre: "+ nombre + ", Matricula: " + matricula +"]";
+        return "[Matricula: " + matricula + "] [Nombre: " + nombre + "] [Apellido: " + apellido + "] [Telefono: " + telefono + "]";
     }
 }

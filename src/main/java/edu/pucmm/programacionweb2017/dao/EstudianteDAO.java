@@ -15,4 +15,6 @@ public interface EstudianteDAO {
     void borrar(Estudiante estudiante);
 
     List<Estudiante> encontrarTodos();
+
+    Estudiante encontrarPorMatricula(int matricula);
 }

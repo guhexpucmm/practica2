@@ -16,7 +16,13 @@ public class EstudianteDAOImpl implements EstudianteDAO {
 
     @Override
     public void actualizar(Estudiante estudiante) {
-
+        for (int i = 0; i < encontrarTodos().size(); i++) {
+            if (encontrarTodos().get(i).getMatricula() == estudiante.getMatricula()) {
+                encontrarTodos().get(i).setNombre(estudiante.getNombre());
+                encontrarTodos().get(i).setApellido(estudiante.getApellido());
+                encontrarTodos().get(i).setTelefono(estudiante.getTelefono());
+            }
+        }
     }
 
     @Override
@@ -27,5 +33,16 @@ public class EstudianteDAOImpl implements EstudianteDAO {
     @Override
     public List<Estudiante> encontrarTodos() {
         return DBEstudiante.listaEstudiantes;
+    }
+
+    @Override
+    public Estudiante encontrarPorMatricula(int matricula) {
+        for (Estudiante estudiante : encontrarTodos()) {
+            if (estudiante.getMatricula() == matricula) {
+                return estudiante;
+            }
+        }
+
+        return null;
     }
 }

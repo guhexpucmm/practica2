@@ -1,23 +1,19 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<html xmlns:th="http://www.w3.org/1999/xhtml" lang="en">
 <head>
     <meta charset="UTF-8">
     <title th:text="${titulo}">CRUD Sencillo de estudiantes (Practica #2)</title>
 </head>
 <body>
 <h1 th:text="${header}">Header defecto</h1>
-<p>
-    <form th:action="${insertar}">
-        <input type="submit" value="Agregar nuevo estudiante."/>
-    </form>
-</p>
+<a href="form.html" th:href="@{insertar}">Agregar nuevo estudiante</a>
 <table>
     <thread>
         <tr>
             <th>Matricula</th>
             <th>Nombre</th>
             <th>Apellido</th>
-            <th>Telefono</th>
+            <th>Accion</th>
         </tr>
     </thread>
     <tbody>
@@ -25,9 +21,15 @@
         <td th:text="${estudiante.matricula}"></td>
         <td th:text="${estudiante.nombre}"></td>
         <td th:text="${estudiante.apellido}"></td>
-        <td th:text="${estudiante.telefono}"></td>
+        <td>
+            <a th:href="@{editar(matricula=${estudiante.matricula})}">Editar</a>
+            <a th:href="@{borrar(matricula=${estudiante.matricula})}">Borrar</a>
+            <a th:href="@{ver(matricula=${estudiante.matricula})}">Visualizar</a>
+        </td>
     </tr>
     </tbody>
 </table>
+
+
 </body>
 </html>
