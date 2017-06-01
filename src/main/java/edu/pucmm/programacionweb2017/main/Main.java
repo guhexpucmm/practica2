@@ -37,6 +37,7 @@ public class Main {
             parametros.put("header", "Listado de estudiantes registrados.");
             parametros.put("agregarEstudiante", "Agregar nuevo estudiante");
             parametros.put("listaEstudiantes", estudianteService.encontrarTodos());
+            parametros.put("size", estudianteService.encontrarTodos().size());
 
             return renderThymeleaf(parametros, "/inicio");
         });
