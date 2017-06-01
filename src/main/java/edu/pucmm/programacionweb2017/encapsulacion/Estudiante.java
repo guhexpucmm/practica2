@@ -1,5 +1,7 @@
 package edu.pucmm.programacionweb2017.encapsulacion;
 
+import org.json.simple.JSONObject;
+
 import java.io.Serializable;
 
 /**
@@ -56,5 +58,15 @@ public class Estudiante implements Serializable {
     @Override
     public String toString() {
         return "[Matricula: " + matricula + "] [Nombre: " + nombre + "] [Apellido: " + apellido + "] [Telefono: " + telefono + "]";
+    }
+
+    public String toJSON() {
+        JSONObject jsonObject = new JSONObject();
+        jsonObject.put("matricula", matricula);
+        jsonObject.put("nombre", nombre);
+        jsonObject.put("apellido", apellido);
+        jsonObject.put("telefono", telefono);
+
+        return jsonObject.toJSONString();
     }
 }

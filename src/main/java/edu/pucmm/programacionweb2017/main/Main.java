@@ -48,7 +48,6 @@ public class Main {
             parametros.put("titulo", "Agregar estudiante.");
             parametros.put("header", "Agregar nuevo estudiante.");
             parametros.put("submit", "Insertar");
-            parametros.put("cancel", "Cancelar");
 
             return renderThymeleaf(parametros, "/form");
         });
@@ -62,7 +61,6 @@ public class Main {
             parametros.put("titulo", "Editar estudiante.");
             parametros.put("header", "Editar estudiante registrado.");
             parametros.put("submit", "Actualizar");
-            parametros.put("cancel", "Cancelar");
             parametros.put("mat", estudiante.getMatricula());
             parametros.put("nom", estudiante.getNombre());
             parametros.put("ape", estudiante.getApellido());
@@ -104,7 +102,7 @@ public class Main {
             Estudiante estudiante = estudianteService.encontrarPorMatricula(matricula);
 
             if (estudiante != null) {
-                return estudiante.toString();
+                return estudiante.toJSON();
             } else {
                 return "Estudiante no existe.";
             }
